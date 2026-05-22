@@ -1,0 +1,50 @@
+Swiftiom marketing site — Hostinger (Next.js / Node.js only)
+============================================================
+
+This project is meant to run as a Node process: `next build` then `next start`.
+Do not use static HTML export for this deploy.
+
+ZIP TO UPLOAD ON HOSTINGER (source bundle)
+------------------------------------------
+Use a source-only archive (no `node_modules`, no `.next`), e.g.
+
+  swiftiom-node-hostinger-deploy.zip   ← produced from repo root excluding deps & build dirs
+
+  • Unzip so `package.json` is at the app root Hostinger expects.
+
+ENVIRONMENT (set BEFORE `npm run build`)
+----------------------------------------
+  NEXT_PUBLIC_API_BASE_URL=https://api.swiftiom.com
+  NEXT_PUBLIC_APP_URL=https://app.swiftiom.com
+  NEXT_PUBLIC_MARKETING_URL=https://www.swiftiom.com
+
+Paste in Hostinger → Environment variables, or use `.env.production` on the server.
+Changing NEXT_PUBLIC_* later requires a rebuild.
+
+COMMANDS ON SERVER
+------------------
+  npm ci                 # or npm install
+  npm run build
+  npm run start
+
+Hostinger sets `PORT`; Next.js picks it up automatically.
+
+NODE
+----
+  Node 20.x LTS matches `package.json` engines (>=20.9).
+
+WHAT NOT TO UPLOAD
+------------------
+  node_modules, .git, .next, .env.local, build logs, .cursor (regenerate on server).
+
+KEEP IN THE REPO (included in your ZIP)
+---------------------------------------
+  `.npmrc` — sets `legacy-peer-deps=true` because `react-simple-maps@3` still
+  declares peer react `^16–18` while this app uses React 19. Install and build
+  are fine; without this file, plain `npm ci` on Hostinger fails with ERESOLVE
+  until their panel retries with legacy peers.
+
+TROUBLESHOOTING
+---------------
+  • Wrong API/marketing URLs in the browser → fix env, then `npm run build` again.
+  • Cold `next build` flaky → clear `.next`, run `npm run build` once more.

@@ -1,0 +1,14 @@
+{
+  "name": "Swiftiom TMS",
+  "description": "High-performance enterprise transportation management system (TMS) with AI-powered logistics, real-time telemetry, and automated settlements.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "AI-powered logistics",
+    "Real-time telemetry",
+    "Automated settlements"
+  ]
+}
