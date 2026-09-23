@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Young_Serif } from "next/font/google";
 import "./globals.css";
-import BroadcastBanner from "./components/BroadcastBanner";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,16 +10,16 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const youngSerif = Young_Serif({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-serif",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Swiftiom TMS — Trucks, cargo & money in one place (Ethiopia)",
-  description:
-    "Run trips, fuel, driver pay, and paperwork from your phone—built for Djibouti corridor runs, broker-heavy lanes, and yards that live on calls and WhatsApp. Works when the network is weak.",
+  title: "SWIFTIAM | Enterprise Freight Operations Platform",
+  description: "Manage every truck, trip, driver and settlement from one platform.",
 };
 
 export default function RootLayout({
@@ -27,10 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} min-h-screen selection:bg-primary/30`}>
-        <BroadcastBanner />
-        {children}
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.variable} ${youngSerif.variable} min-h-screen flex flex-col font-sans bg-[#060B14] text-slate-300 antialiased`}>
+        <Navbar />
+        
+        <main className="flex-grow flex flex-col">
+          {children}
+        </main>
+
+=        <Footer />
+        
       </body>
     </html>
   );
