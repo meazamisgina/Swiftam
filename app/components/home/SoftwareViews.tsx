@@ -60,7 +60,7 @@ export default function SoftwareViews() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-[38px] md:text-[48px] lg:text-[56px] text-white leading-[1.1] tracking-tight mb-6"
+            className="font-serif text-[34px] md:text-[42px] lg:text-[48px] text-white leading-[1.1] tracking-tight mb-6 lg:whitespace-nowrap"
           >
             See the operation, not just the software.
           </motion.h2>

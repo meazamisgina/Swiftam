@@ -26,7 +26,7 @@ export default function BottomCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-serif text-[38px] md:text-[46px] lg:text-[52px] text-white leading-[1.1] tracking-tight mb-6 lg:whitespace-nowrap"
+          className="font-serif text-[38px] md:text-[46px] lg:text-[50px] text-white leading-[1.1] tracking-tight mb-6 lg:whitespace-nowrap"
         >
           Your operation is moving. Make it easier to manage.
         </motion.h2>

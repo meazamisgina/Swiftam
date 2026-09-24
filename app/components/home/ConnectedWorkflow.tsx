@@ -71,7 +71,7 @@ export default function ConnectedWorkflow() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-serif text-[36px] md:text-[44px] lg:text-[52px] text-white leading-[1.1] tracking-tight"
+              className="font-serif text-[34px] md:text-[42px] lg:text-[48px] text-white leading-[1.1] tracking-tight"
             >
               One operation. One connected<br className="hidden md:block" /> workflow.
             </motion.h2>
