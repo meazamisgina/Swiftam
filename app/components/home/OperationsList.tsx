@@ -38,7 +38,7 @@ const features: OperationFeature[] = [
 
 export default function OperationsList() {
   return (
-    <section className="bg-[#060B14] w-full py-16 lg:py-20">
+    <section id="solutions" className="bg-[#060B14] w-full py-16 lg:py-20">
       <div className="max-w-[1800px] mx-auto px-8 lg:px-12 w-full">
         
         <div className="mb-12 lg:mb-14 max-w-[1200px]">

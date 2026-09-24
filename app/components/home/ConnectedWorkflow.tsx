@@ -51,7 +51,8 @@ const pipelineSteps = [
 
 export default function ConnectedWorkflow() {
   return (
-    <section className="bg-[#101D30] w-full py-20 lg:py-28 border-t border-[#1a2436]">
+    // ADDED ID HERE
+    <section id="how-it-works" className="bg-[#101D30] w-full py-20 lg:py-28 border-t border-[#1a2436]">
       <div className="max-w-[1800px] mx-auto px-8 lg:px-12 w-full">
         
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-20 lg:mb-24">

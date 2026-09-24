@@ -110,5 +110,5 @@ export default function Navbar() {
 
       </div>
     </motion.header>
-  );
+  ); 
 }

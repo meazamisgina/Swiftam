@@ -37,9 +37,9 @@ export default function Footer() {
                 Platform
               </h4>
               <ul className="flex flex-col gap-4">
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Platform</Link></li>
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Solutions</Link></li>
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">How It Works</Link></li>
+                <li><Link href="#platform" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Platform</Link></li>
+                <li><Link href="#solutions" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Solutions</Link></li>
+                <li><Link href="#how-it-works" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">How It Works</Link></li>
                 <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Pricing</Link></li>
               </ul>
             </div>

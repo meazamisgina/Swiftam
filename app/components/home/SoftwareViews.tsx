@@ -41,7 +41,7 @@ export default function SoftwareViews() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section className="bg-[#060B14] w-full py-24 lg:py-32 relative">
+    <section id="platform" className="bg-[#060B14] w-full py-24 lg:py-32 relative">
       <div className="max-w-[1800px] mx-auto px-8 lg:px-12 w-full">
         
         <div className="flex flex-col items-center text-center mb-16 lg:mb-24 max-w-[800px] mx-auto">
