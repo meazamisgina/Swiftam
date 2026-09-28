@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#060B14] w-full pt-20 pb-8 border-t border-[#1a2436]">
+    <footer className="bg-[#060B14] w-full pt-20 pb-8">
       <div className="max-w-[1800px] mx-auto px-8 lg:px-12 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
@@ -25,7 +25,7 @@ export default function Footer() {
               </span>
             </Link>
             
-            <p className="text-slate-400 text-[14px] leading-[1.8] max-w-[420px]">
+            <p className="font-sans text-slate-400 text-[14px] leading-[1.8] max-w-[420px]">
               The transport operations platform built for clearer, more connected transport workflows. Optimized for fleets operating in and around Ethiopia.
             </p>
           </div>
@@ -33,35 +33,35 @@ export default function Footer() {
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10 lg:gap-12 mt-2 lg:mt-0">
             
             <div className="flex flex-col">
-              <h4 className="text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
+              <h4 className="font-sans text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
                 Platform
               </h4>
               <ul className="flex flex-col gap-4">
-                <li><Link href="#platform" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Platform</Link></li>
-                <li><Link href="#solutions" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Solutions</Link></li>
-                <li><Link href="#how-it-works" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">How It Works</Link></li>
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Pricing</Link></li>
+                <li><Link href="#platform" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Platform</Link></li>
+                <li><Link href="#solutions" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Solutions</Link></li>
+                <li><Link href="#how-it-works" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">How It Works</Link></li>
+                <li><Link href="#pricing" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Pricing</Link></li>
               </ul>
             </div>
 
             <div className="flex flex-col">
-              <h4 className="text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
+              <h4 className="font-sans text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
                 Company
               </h4>
               <ul className="flex flex-col gap-4">
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">About</Link></li>
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Contact</Link></li>
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">FAQ</Link></li>
+                <li><Link href="#company" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">About</Link></li>
+                <li><Link href="#contact" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Contact</Link></li>
+                <li><Link href="#faq" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">FAQ</Link></li>
               </ul>
             </div>
 
             <div className="flex flex-col">
-              <h4 className="text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
+              <h4 className="font-sans text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
                 Legal
               </h4>
               <ul className="flex flex-col gap-4">
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Privacy Policy</Link></li>
-                <li><Link href="#" className="text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Terms of Service</Link></li>
+                <li><Link href="/privacy" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
 
@@ -70,7 +70,7 @@ export default function Footer() {
 
         <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between pt-8 border-t border-[#1a2436] gap-6">
           
-          <p className="text-slate-500 text-[13px]">
+          <p className="font-sans text-slate-500 text-[13px]">
             © {currentYear} SWIFTIAM. All rights reserved.
           </p>
 
