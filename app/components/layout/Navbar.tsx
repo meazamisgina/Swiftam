@@ -49,11 +49,11 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-12 text-[13px] font-medium text-slate-300">
-          <Link href="#platform" className="hover:text-white transition-colors whitespace-nowrap">Platform</Link>
-          <Link href="#solutions" className="hover:text-white transition-colors whitespace-nowrap">Solutions</Link>
-          <Link href="#how-it-works" className="hover:text-white transition-colors whitespace-nowrap">How It Works</Link>
-          <Link href="#pricing" className="hover:text-white transition-colors whitespace-nowrap">Pricing</Link>
-          <Link href="#company" className="hover:text-white transition-colors whitespace-nowrap">Company</Link>
+          <Link href="/#platform" className="hover:text-white transition-colors whitespace-nowrap">Platform</Link>
+          <Link href="/#solutions" className="hover:text-white transition-colors whitespace-nowrap">Solutions</Link>
+          <Link href="/#how-it-works" className="hover:text-white transition-colors whitespace-nowrap">How It Works</Link>
+          <Link href="/#pricing" className="hover:text-white transition-colors whitespace-nowrap">Pricing</Link>
+          <Link href="/#company" className="hover:text-white transition-colors whitespace-nowrap">Company</Link>
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-6">
@@ -110,6 +110,13 @@ export default function Navbar() {
           </div>
           
           <Link 
+            href="https://app.swiftiom.com/login" 
+            className="hidden lg:block text-[13px] font-medium text-slate-300 hover:text-white transition-colors"
+          >
+            Log In
+          </Link>
+
+          <Link 
             href="/book-demo" 
             className="btn-primary text-[13px] py-2.5 px-6 rounded whitespace-nowrap hidden lg:inline-flex"
           >
@@ -138,11 +145,11 @@ export default function Navbar() {
             className="lg:hidden border-t border-[#1a2436] bg-[#060B14] shadow-2xl overflow-hidden"
           >
             <nav className="flex flex-col px-6 py-6 gap-5 text-[15px] font-medium text-slate-300">
-              <Link href="#platform" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Platform</Link>
-              <Link href="#solutions" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Solutions</Link>
-              <Link href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">How It Works</Link>
-              <Link href="#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Pricing</Link>
-              <Link href="#company" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Company</Link>
+              <Link href="/#platform" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Platform</Link>
+              <Link href="/#solutions" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Solutions</Link>
+              <Link href="/#how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">How It Works</Link>
+              <Link href="/#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Pricing</Link>
+              <Link href="/#company" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Company</Link>
               
               <div className="h-[1px] w-full bg-[#1a2436] my-1" />
               
@@ -154,13 +161,22 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <Link 
-                href="/book-demo" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="btn-primary w-full py-3 mt-3 text-center justify-center flex rounded text-[14px]"
-              >
-                Book a Demo
-              </Link>
+              <div className="flex flex-col gap-3 mt-3">
+                <Link 
+                  href="https://app.swiftiom.com/login" 
+                  onClick={() => setMobileMenuOpen(false)} 
+                  className="text-center text-[14px] text-slate-300 hover:text-white py-2"
+                >
+                  Log In
+                </Link>
+                <Link 
+                  href="/book-demo" 
+                  onClick={() => setMobileMenuOpen(false)} 
+                  className="btn-primary w-full py-3 text-center justify-center flex rounded text-[14px]"
+                >
+                  Book a Demo
+                </Link>
+              </div>
             </nav>
           </motion.div>
         )}
