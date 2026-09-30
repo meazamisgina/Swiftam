@@ -54,7 +54,7 @@
     "description": "አንድ ጉዞ ከተመደበበት ጊዜ አንስቶ እስከሚጠናቀቅበት ጊዜ ድረስ፣ SWIFTIAM የስራ መረጃዎችን አገናኝቶ ይይዛል።",
     "steps": {
       "assign": { "title": "ምደባ", "description": "ጉዞዎችን ይፍጠሩ እና አሽከርካሪዎችን ይመድቡ" },
-      "track": { "title": "ክትትል", "description": "ገቢር ተሽከርካሪዎችን እና ಪ್ರोगረஸን ይመልከቱ" },
+      "track": { "title": "ክትትል", "description": "ገቢር ተሽከርካሪዎችን እና የስራ ሂደትን ይመልከቱ" },
       "capture": { "title": "ማስረጃ", "description": "አሽከርካሪዎች የመስክ ማስረጃዎችን ያቀርባሉ" },
       "verify": { "title": "ማረጋገጥ", "description": "የጉዞ መዝገቦችን እና መረጃዎችን ይገምግሙ" },
       "settle": { "title": "ክፍያ", "description": "ጉዞን ወደ ፋይናንስ ማጠናቀቂያ ያንቀሳቅሱ" },
