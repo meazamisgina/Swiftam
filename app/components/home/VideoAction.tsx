@@ -5,9 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function VideoAction() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const t = useTranslations("VideoAction");
+  const locale = useLocale();
 
   return (
     <section className="bg-[#101D30] w-full py-20 lg:py-28 border-t border-[#1a2436] relative">
@@ -23,7 +26,7 @@ export default function VideoAction() {
               transition={{ duration: 0.5 }}
               className="text-[#00D4FF] text-[11px] font-bold tracking-[0.08em] uppercase mb-4 block"
             >
-              VIDEO OVERVIEW
+              {t('pill')}
             </motion.span>
             
             <motion.h2 
@@ -33,7 +36,7 @@ export default function VideoAction() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-serif text-[38px] md:text-[44px] lg:text-[48px] text-white leading-[1.1] tracking-tight mb-6 lg:whitespace-nowrap"
             >
-              See SWIFTIAM in action
+              {t('title')}
             </motion.h2>
 
             <motion.p
@@ -43,7 +46,7 @@ export default function VideoAction() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-slate-400 text-[14px] lg:text-[15.5px] leading-relaxed max-w-[500px] mb-10"
             >
-              Take a structured, two-minute look at how dispatch, live route tracking, driver operations, and digital closeout sync together seamlessly across the platform.
+              {t('description')}
             </motion.p>
 
             <motion.div
@@ -53,10 +56,10 @@ export default function VideoAction() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <Link 
-                href="/tour" 
+                href={`/${locale}/tour`} 
                 className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#060B14] border border-[#1a2436] rounded text-white text-[14px] font-medium hover:border-[#00D4FF] transition-colors duration-300 group shadow-lg w-max"
               >
-                Watch the Product Tour
+                {t('btn_tour')}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:scale-110 transition-transform">
                   <polygon points="5 3 19 12 5 21 5 3"/>
                 </svg>
@@ -118,7 +121,7 @@ export default function VideoAction() {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <p className="text-white font-medium text-lg bg-[#060B14]/80 px-6 py-3 rounded-full backdrop-blur-md">
-                  Video Player Embedded Here
+                  {t('placeholder')}
                 </p>
               </div>
               

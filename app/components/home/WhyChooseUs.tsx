@@ -2,35 +2,14 @@
 
 import { motion } from "framer-motion";
 import { Waypoints, Eye, RefreshCcw, BookOpen } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const coreValues = [
-  {
-    id: "connected",
-    title: "CONNECTED OPERATIONS",
-    description: "Trips, drivers, live tracking coordinates, and digital delivery evidence function together within a single unified operational ledger.",
-    icon: Waypoints,
-  },
-  {
-    id: "visibility",
-    title: "LIVE VISIBILITY",
-    description: "Instantly locate active trips and monitor route progression without constant back-and-forth manual follow-ups.",
-    icon: Eye,
-  },
-  {
-    id: "continuity",
-    title: "FIELD-TO-OFFICE CONTINUITY",
-    description: "Documents and details scanned by drivers on the road immediately synchronize with central operations back at the dispatch office.",
-    icon: RefreshCcw,
-  },
-  {
-    id: "adoption",
-    title: "GUIDED ADOPTION",
-    description: "No hands-off software drops. SWIFTIAM provides structural, local support to onboard and train your staff properly.",
-    icon: BookOpen,
-  }
-];
+const valueKeys = ["connected", "visibility", "continuity", "adoption"] as const;
+const icons = [Waypoints, Eye, RefreshCcw, BookOpen];
 
 export default function WhyChooseUs() {
+  const t = useTranslations("WhyChooseUs");
+
   return (
     <section className="bg-[#101D30] w-full py-24 lg:py-32 border-t border-[#1a2436]">
       <div className="max-w-[1800px] mx-auto px-8 lg:px-12 w-full">
@@ -43,7 +22,7 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.5 }}
             className="text-[#00D4FF] text-[11px] font-bold tracking-[0.08em] uppercase mb-5 block"
           >
-            CORE VALUE
+            {t('pill')}
           </motion.span>
           
           <motion.h2 
@@ -53,17 +32,17 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-serif text-[34px] md:text-[42px] lg:text-[48px] text-white leading-[1.1] tracking-tight"
           >
-            Why transport teams choose a connected operating workflow
+            {t('title')}
           </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-[1400px] mx-auto">
-          {coreValues.map((value, index) => {
-            const Icon = value.icon;
+          {valueKeys.map((key, index) => {
+            const Icon = icons[index];
             
             return (
               <motion.div
-                key={value.id}
+                key={key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -76,10 +55,10 @@ export default function WhyChooseUs() {
 
                 <div className="flex flex-col">
                   <h3 className="text-white font-bold text-[15px] tracking-[0.05em] uppercase mb-3">
-                    {value.title}
+                    {t(`values.${key}.title`)}
                   </h3>
                   <p className="text-slate-400 text-[14px] lg:text-[15px] leading-[1.7]">
-                    {value.description}
+                    {t(`values.${key}.description`)}
                   </p>
                 </div>
               </motion.div>

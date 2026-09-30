@@ -1,57 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  ClipboardList, 
-  Crosshair, 
-  Camera, 
-  ShieldCheck, 
-  Building2, 
-  TrendingUp 
-} from "lucide-react";
+import { ClipboardList, Crosshair, Camera, ShieldCheck, Building2, TrendingUp } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const pipelineSteps = [
-  {
-    id: "01",
-    title: "ASSIGN",
-    description: "Create trips and assign drivers",
-    icon: ClipboardList,
-  },
-  {
-    id: "02",
-    title: "TRACK",
-    description: "See active vehicles and progress",
-    icon: Crosshair,
-  },
-  {
-    id: "03",
-    title: "CAPTURE",
-    description: "Drivers submit field evidence",
-    icon: Camera,
-  },
-  {
-    id: "04",
-    title: "VERIFY",
-    description: "Review trip records & data",
-    icon: ShieldCheck,
-  },
-  {
-    id: "05",
-    title: "SETTLE",
-    description: "Move trip toward financial close",
-    icon: Building2,
-  },
-  {
-    id: "06",
-    title: "REPORT",
-    description: "Clearer record for management",
-    icon: TrendingUp,
-  }
-];
+const pipelineIcons = [ClipboardList, Crosshair, Camera, ShieldCheck, Building2, TrendingUp];
+const stepKeys = ["assign", "track", "capture", "verify", "settle", "report"] as const;
 
 export default function ConnectedWorkflow() {
+  const t = useTranslations("ConnectedWorkflow");
+
   return (
-    // ADDED ID HERE
     <section id="how-it-works" className="bg-[#101D30] w-full py-20 lg:py-28 border-t border-[#1a2436]">
       <div className="max-w-[1800px] mx-auto px-8 lg:px-12 w-full">
         
@@ -64,7 +23,7 @@ export default function ConnectedWorkflow() {
               transition={{ duration: 0.5 }}
               className="text-[#00D4FF] text-[11px] font-bold tracking-[0.08em] uppercase mb-5 block"
             >
-              THE PIPELINE
+              {t('pill')}
             </motion.span>
             
             <motion.h2 
@@ -74,7 +33,7 @@ export default function ConnectedWorkflow() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-serif text-[34px] md:text-[42px] lg:text-[48px] text-white leading-[1.1] tracking-tight"
             >
-              One operation. One connected<br className="hidden md:block" /> workflow.
+              {t('title1')}<br className="hidden md:block" /> {t('title2')}
             </motion.h2>
           </div>
 
@@ -86,19 +45,18 @@ export default function ConnectedWorkflow() {
             className="max-w-[450px] lg:pb-2"
           >
             <p className="text-slate-400 text-[14px] lg:text-[15px] leading-relaxed">
-              From the moment a trip is assigned to the moment it is closed, 
-              SWIFTIAM keeps the operational information connected.
+              {t('description')}
             </p>
           </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-y-12 lg:gap-y-0">
-          {pipelineSteps.map((step, index) => {
-            const Icon = step.icon;
+          {stepKeys.map((key, index) => {
+            const Icon = pipelineIcons[index];
             
             return (
               <motion.div 
-                key={step.id}
+                key={key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -106,7 +64,7 @@ export default function ConnectedWorkflow() {
                 className="relative flex flex-col pr-6 lg:pr-0"
               >
                 
-                {index !== pipelineSteps.length - 1 && (
+                {index !== stepKeys.length - 1 && (
                   <div className="hidden lg:block absolute top-[28px] left-[56px] w-full h-[1px] bg-white/10">
                     <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#00D4FF]" />
                   </div>
@@ -118,15 +76,15 @@ export default function ConnectedWorkflow() {
 
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <h4 className="text-white font-bold text-[11px] tracking-wider uppercase">
-                    {step.title}
+                    {t(`steps.${key}.title`)}
                   </h4>
                   <span className="text-[#00D4FF] text-[9px] font-bold opacity-90">
-                    {step.id}
+                    0{index + 1}
                   </span>
                 </div>
                 
                 <p className="text-slate-400 text-[12px] lg:text-[13px] leading-relaxed max-w-[200px]">
-                  {step.description}
+                  {t(`steps.${key}.description`)}
                 </p>
 
               </motion.div>

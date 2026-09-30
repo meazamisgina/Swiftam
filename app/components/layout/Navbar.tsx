@@ -5,17 +5,30 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const t = useTranslations("Navbar");
+  const locale = useLocale();
+  const pathname = usePathname();
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const switchLanguage = (newLocale: string) => {
+    setLangOpen(false);
+    setMobileMenuOpen(false);
+    const currentPath = pathname.replace(`/${locale}`, '');
+    window.location.href = `/${newLocale}${currentPath}`;
+  };
 
   return (
     <motion.header
@@ -31,7 +44,7 @@ export default function Navbar() {
       <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 w-full flex items-center justify-between">
         
         <Link
-          href="/"
+          href={`/${locale}`}
           className="flex items-center gap-2.5 shrink-0"
           onClick={() => setMobileMenuOpen(false)}
         >
@@ -49,11 +62,11 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-12 text-[13px] font-medium text-slate-300">
-          <Link href="/#platform" className="hover:text-white transition-colors whitespace-nowrap">Platform</Link>
-          <Link href="/#solutions" className="hover:text-white transition-colors whitespace-nowrap">Solutions</Link>
-          <Link href="/#how-it-works" className="hover:text-white transition-colors whitespace-nowrap">How It Works</Link>
-          <Link href="/#pricing" className="hover:text-white transition-colors whitespace-nowrap">Pricing</Link>
-          <Link href="/#company" className="hover:text-white transition-colors whitespace-nowrap">Company</Link>
+          <Link href={`/${locale}/#platform`} className="hover:text-white transition-colors whitespace-nowrap">{t('platform')}</Link>
+          <Link href={`/${locale}/#solutions`} className="hover:text-white transition-colors whitespace-nowrap">{t('solutions')}</Link>
+          <Link href={`/${locale}/#how-it-works`} className="hover:text-white transition-colors whitespace-nowrap">{t('how_it_works')}</Link>
+          <Link href={`/${locale}/#pricing`} className="hover:text-white transition-colors whitespace-nowrap">{t('pricing')}</Link>
+          <Link href={`/${locale}/#company`} className="hover:text-white transition-colors whitespace-nowrap">{t('company')}</Link>
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-6">
@@ -67,7 +80,7 @@ export default function Navbar() {
               type="button"
               className="flex items-center gap-1.5 text-[13px] font-medium text-slate-300 hover:text-white transition-colors py-2 outline-none"
             >
-              English
+              {locale === 'en' ? 'English' : 'አማርኛ'}
               <motion.svg 
                 animate={{ rotate: langOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
@@ -86,23 +99,22 @@ export default function Navbar() {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                   className="absolute top-full right-0 mt-2 w-[160px] bg-[#0A1220] border border-[#1a2436] rounded-xl shadow-2xl py-2 z-50 flex flex-col overflow-hidden"
                 >
-                  <button type="button" className="flex items-center justify-between px-4 py-2.5 hover:bg-[#1a2436]/50 transition-colors text-left w-full outline-none">
+                  <button onClick={() => switchLanguage('en')} type="button" className="flex items-center justify-between px-4 py-2.5 hover:bg-[#1a2436]/50 transition-colors text-left w-full outline-none">
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-white text-[13px] font-medium">English</span>
+                      <span className={locale === 'en' ? "text-white text-[13px] font-medium" : "text-slate-300 text-[13px] font-medium"}>English</span>
                       <span className="text-slate-500 text-[11px]">English</span>
                     </div>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    {locale === 'en' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>}
                   </button>
 
                   <div className="h-[1px] w-full bg-[#1a2436] my-1" />
 
-                  <button type="button" className="flex items-center justify-between px-4 py-2.5 hover:bg-[#1a2436]/50 transition-colors text-left w-full group outline-none">
+                  <button onClick={() => switchLanguage('am')} type="button" className="flex items-center justify-between px-4 py-2.5 hover:bg-[#1a2436]/50 transition-colors text-left w-full group outline-none">
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-slate-300 group-hover:text-white text-[13px] font-medium transition-colors">አማርኛ</span>
-                      <span className="text-slate-500 text-[11px] group-hover:text-slate-400 transition-colors">Amharic</span>
+                      <span className={locale === 'am' ? "text-white text-[13px] font-medium" : "text-slate-300 group-hover:text-white text-[13px] font-medium transition-colors"}>አማርኛ</span>
+                      <span className={locale === 'am' ? "text-slate-400 text-[11px]" : "text-slate-500 text-[11px] group-hover:text-slate-400 transition-colors"}>Amharic</span>
                     </div>
+                    {locale === 'am' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>}
                   </button>
                 </motion.div>
               )}
@@ -113,14 +125,14 @@ export default function Navbar() {
             href="https://app.swiftiom.com/login" 
             className="hidden lg:block text-[13px] font-medium text-slate-300 hover:text-white transition-colors"
           >
-            Log In
+            {t('log_in')}
           </Link>
 
           <Link 
-            href="/book-demo" 
+            href={`/${locale}/book-demo`} 
             className="btn-primary text-[13px] py-2.5 px-6 rounded whitespace-nowrap hidden lg:inline-flex"
           >
-            Book a Demo
+            {t('book_demo')}
           </Link>
 
           <button 
@@ -145,19 +157,19 @@ export default function Navbar() {
             className="lg:hidden border-t border-[#1a2436] bg-[#060B14] shadow-2xl overflow-hidden"
           >
             <nav className="flex flex-col px-6 py-6 gap-5 text-[15px] font-medium text-slate-300">
-              <Link href="/#platform" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Platform</Link>
-              <Link href="/#solutions" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Solutions</Link>
-              <Link href="/#how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">How It Works</Link>
-              <Link href="/#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Pricing</Link>
-              <Link href="/#company" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Company</Link>
+              <Link href={`/${locale}/#platform`} onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">{t('platform')}</Link>
+              <Link href={`/${locale}/#solutions`} onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">{t('solutions')}</Link>
+              <Link href={`/${locale}/#how-it-works`} onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">{t('how_it_works')}</Link>
+              <Link href={`/${locale}/#pricing`} onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">{t('pricing')}</Link>
+              <Link href={`/${locale}/#company`} onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">{t('company')}</Link>
               
               <div className="h-[1px] w-full bg-[#1a2436] my-1" />
               
               <div className="flex flex-col gap-3">
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Language</span>
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{t('language')}</span>
                 <div className="flex items-center gap-5 text-sm">
-                  <button type="button" className="text-white font-medium">English</button>
-                  <button type="button" className="text-slate-400 hover:text-white transition-colors">አማርኛ</button>
+                  <button onClick={() => switchLanguage('en')} type="button" className={locale === 'en' ? "text-white font-medium" : "text-slate-400 hover:text-white transition-colors"}>English</button>
+                  <button onClick={() => switchLanguage('am')} type="button" className={locale === 'am' ? "text-white font-medium" : "text-slate-400 hover:text-white transition-colors"}>አማርኛ</button>
                 </div>
               </div>
 
@@ -167,14 +179,14 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)} 
                   className="text-center text-[14px] text-slate-300 hover:text-white py-2"
                 >
-                  Log In
+                  {t('log_in')}
                 </Link>
                 <Link 
-                  href="/book-demo" 
+                  href={`/${locale}/book-demo`} 
                   onClick={() => setMobileMenuOpen(false)} 
                   className="btn-primary w-full py-3 text-center justify-center flex rounded text-[14px]"
                 >
-                  Book a Demo
+                  {t('book_demo')}
                 </Link>
               </div>
             </nav>

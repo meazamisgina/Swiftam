@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Young_Serif } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+
+import "../globals.css";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,19 +47,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: any; 
 }>) {
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <body className={`${inter.variable} ${youngSerif.variable} min-h-screen flex flex-col font-sans bg-[#060B14] text-slate-300 antialiased`}>
-        <Navbar />
-        <main className="flex-grow flex flex-col">
-          {children}
-        </main>
-        <Footer />
+        
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <Navbar />
+          <main className="flex-grow flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
+
       </body>
     </html>
   );

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Facebook } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+  const locale = useLocale();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -12,7 +15,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           
           <div className="lg:col-span-5 flex flex-col pr-0 lg:pr-12">
-            <Link href="/" className="flex items-center gap-3 mb-6 w-max group">
+            <Link href={`/${locale}`} className="flex items-center gap-3 mb-6 w-max group">
               <Image 
                 src="/logo.svg" 
                 alt="Swiftiam Logo" 
@@ -26,7 +29,7 @@ export default function Footer() {
             </Link>
             
             <p className="font-sans text-slate-400 text-[14px] leading-[1.8] max-w-[420px]">
-              The transport operations platform built for clearer, more connected transport workflows. Optimized for fleets operating in and around Ethiopia.
+              {t('description')}
             </p>
           </div>
 
@@ -34,34 +37,34 @@ export default function Footer() {
             
             <div className="flex flex-col">
               <h4 className="font-sans text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
-                Platform
+                {t('platform.title')}
               </h4>
               <ul className="flex flex-col gap-4">
-                <li><Link href="#platform" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Platform</Link></li>
-                <li><Link href="#solutions" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Solutions</Link></li>
-                <li><Link href="#how-it-works" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">How It Works</Link></li>
-                <li><Link href="#pricing" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Pricing</Link></li>
+                <li><Link href={`/${locale}/#platform`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('platform.link1')}</Link></li>
+                <li><Link href={`/${locale}/#solutions`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('platform.link2')}</Link></li>
+                <li><Link href={`/${locale}/#how-it-works`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('platform.link3')}</Link></li>
+                <li><Link href={`/${locale}/#pricing`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('platform.link4')}</Link></li>
               </ul>
             </div>
 
             <div className="flex flex-col">
               <h4 className="font-sans text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
-                Company
+                {t('company.title')}
               </h4>
               <ul className="flex flex-col gap-4">
-                <li><Link href="#company" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">About</Link></li>
-                <li><Link href="#contact" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Contact</Link></li>
-                <li><Link href="#faq" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">FAQ</Link></li>
+                <li><Link href={`/${locale}/#company`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('company.link1')}</Link></li>
+                <li><Link href={`/${locale}/#contact`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('company.link2')}</Link></li>
+                <li><Link href={`/${locale}/#pricing`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('company.link3')}</Link></li>
               </ul>
             </div>
 
             <div className="flex flex-col">
               <h4 className="font-sans text-white text-[11px] font-bold tracking-[0.08em] uppercase mb-6">
-                Legal
+                {t('legal.title')}
               </h4>
               <ul className="flex flex-col gap-4">
-                <li><Link href="/privacy" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">Terms of Service</Link></li>
+                <li><Link href={`/${locale}/privacy`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('legal.link1')}</Link></li>
+                <li><Link href={`/${locale}/terms`} className="font-sans text-slate-400 hover:text-[#00D4FF] text-[14px] transition-colors">{t('legal.link2')}</Link></li>
               </ul>
             </div>
 
@@ -71,7 +74,7 @@ export default function Footer() {
         <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between pt-8 border-t border-[#1a2436] gap-6">
           
           <p className="font-sans text-slate-500 text-[13px]">
-            © {currentYear} SWIFTIAM. All rights reserved.
+            {t('rights', { year: currentYear })}
           </p>
 
           <div className="flex items-center gap-6">

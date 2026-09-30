@@ -4,41 +4,19 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-interface SoftwareCard {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  imagePath: string;
-}
+const cardKeys = ["dispatch", "driver", "vault"] as const;
 
-const cardsData: SoftwareCard[] = [
-  {
-    id: "dispatch",
-    title: "Dispatch Console",
-    subtitle: "Know what is assigned, active and pending.",
-    description: "One control tower for your operations team. Dispatchers view active routes, vehicle assignments, and real-time trip lifecycles without jumping between manual logs.",
-    imagePath: "/hero-bg.png", 
-  },
-  {
-    id: "driver",
-    title: "Driver Mobile App",
-    subtitle: "Keep drivers connected from the road.",
-    description: "Designed to operate on standard mobile connections. Drivers receive trip orders, update status, and relay GPS coordinates automatically without costly specialized hardware.",
-    imagePath: "/hero-bg.png",
-  },
-  {
-    id: "vault",
-    title: "Digital Evidence Vault",
-    subtitle: "Bring delivery records back into the workflow.",
-    description: "Instant field capture. Drivers snap photo evidence of waybills, customs documents, and customer sign-offs, attaching them instantly to the permanent trip ledger.",
-    imagePath: "/hero-bg.png", 
-  }
-];
+const cardImages: Record<(typeof cardKeys)[number], string> = {
+  dispatch: "/dispatch.png",
+  driver: "/hero-bg.png",
+  vault: "/vault.png",
+};
 
 export default function SoftwareViews() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const t = useTranslations("SoftwareViews");
 
   return (
     <section id="platform" className="bg-[#060B14] w-full py-24 lg:py-32 relative">
@@ -52,7 +30,7 @@ export default function SoftwareViews() {
             transition={{ duration: 0.5 }}
             className="text-[#00D4FF] text-[11px] font-bold tracking-[0.08em] uppercase mb-5 block"
           >
-            INTERFACE SHOWCASE
+            {t('pill')}
           </motion.span>
           
           <motion.h2 
@@ -62,7 +40,7 @@ export default function SoftwareViews() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-serif text-[34px] md:text-[42px] lg:text-[48px] text-white leading-[1.1] tracking-tight mb-6 lg:whitespace-nowrap"
           >
-            See the operation, not just the software.
+            {t('title')}
           </motion.h2>
 
           <motion.p
@@ -72,50 +50,54 @@ export default function SoftwareViews() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-400 text-[15px] lg:text-[17px] leading-relaxed max-w-[650px]"
           >
-            SWIFTIAM gives dispatchers and transport managers a shared, verified view of the actual work happening across their fleet.
+            {t('description')}
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
-          {cardsData.map((card, index) => (
-            <motion.div
-              key={card.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="bg-[#0A1220] border border-[#1a2436] rounded-2xl p-8 lg:p-10 flex flex-col h-full shadow-lg shadow-black/20"
-            >
-              <h3 className="font-serif text-[26px] lg:text-[30px] text-white tracking-tight mb-2">
-                {card.title}
-              </h3>
-              <h4 className="text-[#00D4FF] text-[14px] lg:text-[15px] font-medium mb-5">
-                {card.subtitle}
-              </h4>
-              <p className="text-slate-400 text-[14px] lg:text-[15px] leading-[1.7] mb-12">
-                {card.description}
-              </p>
+          {cardKeys.map((key, index) => {
+            const imageSrc = cardImages[key];
 
-              <div 
-                className="mt-auto w-full rounded-xl overflow-hidden border border-[#1a2436] cursor-pointer group relative shadow-2xl bg-[#060B14]"
-                onClick={() => setSelectedImage(card.imagePath)}
+            return (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="bg-[#0A1220] border border-[#1a2436] rounded-2xl p-8 lg:p-10 flex flex-col h-full shadow-lg shadow-black/20"
               >
-                <div className="relative w-full aspect-[4/3]">
-                  <Image 
-                    src={card.imagePath}
-                    alt={`${card.title} Interface`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-[#00D4FF]/0 group-hover:bg-[#00D4FF]/10 transition-colors duration-300 flex items-center justify-center">
-                    <div className="bg-[#060B14]/80 text-white text-[12px] font-medium px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm transform translate-y-2 group-hover:translate-y-0">
-                      Click to expand
+                <h3 className="font-serif text-[26px] lg:text-[30px] text-white tracking-tight mb-2">
+                  {t(`cards.${key}.title`)}
+                </h3>
+                <h4 className="text-[#00D4FF] text-[14px] lg:text-[15px] font-medium mb-5">
+                  {t(`cards.${key}.subtitle`)}
+                </h4>
+                <p className="text-slate-400 text-[14px] lg:text-[15px] leading-[1.7] mb-12">
+                  {t(`cards.${key}.description`)}
+                </p>
+
+                <div 
+                  className="mt-auto w-full rounded-xl overflow-hidden border border-[#1a2436] cursor-pointer group relative shadow-2xl bg-[#060B14]"
+                  onClick={() => setSelectedImage(imageSrc)}
+                >
+                  <div className="relative w-full aspect-[4/3]">
+                    <Image 
+                      src={imageSrc}
+                      alt={`${t(`cards.${key}.title`)} Interface`}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-[#00D4FF]/0 group-hover:bg-[#00D4FF]/10 transition-colors duration-300 flex items-center justify-center">
+                      <div className="bg-[#060B14]/80 text-white text-[12px] font-medium px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm transform translate-y-2 group-hover:translate-y-0">
+                        {t('click_hint')}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>

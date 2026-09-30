@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function HeroSection() {
+  const t = useTranslations("Hero");
+  const locale = useLocale();
+
   return (
     <section className="relative w-full flex items-center pt-16 pb-20 overflow-hidden min-h-[calc(100vh-76px)] mt-[76px]">
       
@@ -31,7 +35,7 @@ export default function HeroSection() {
             <div className="inline-flex items-center gap-2 border border-[#00D4FF] bg-transparent rounded-full px-3.5 py-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF]" />
               <span className="text-[#00D4FF] text-[11px] font-bold tracking-[0.08em] uppercase">
-                ETHIOPIAN TRANSPORT OPERATIONS PLATFORM
+                {t('pill')}
               </span>
             </div>
           </motion.div>
@@ -42,7 +46,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="font-serif text-[48px] md:text-[60px] lg:text-[70px] font-medium text-white leading-[1.05] tracking-tight mb-8"
           >
-            Manage every truck, trip, driver and<br className="hidden md:block" /> settlement from one platform.
+            {t('title1')} <br className="hidden md:block" /> {t('title2')}
           </motion.h1>
 
           <motion.p 
@@ -51,7 +55,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-[16px] md:text-[18px] text-slate-300 mb-10 max-w-[675px] leading-relaxed"
           >
-            SWIFTIAM connects dispatch, live vehicle tracking, driver operations, trip evidence and settlement in one place, giving transport teams a clearer view of what is happening from dispatch to closeout.
+            {t('description')}
           </motion.p>
 
           <motion.div 
@@ -60,19 +64,19 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-start sm:items-center gap-7"
           >
-            <Link href="/book-demo" className="bg-[#00D4FF] hover:bg-[#00bfe6] text-[#060B14] text-[15px] px-8 py-3.5 flex items-center gap-2.5 rounded font-semibold transition-colors shadow-[0_0_15px_rgba(0,212,255,0.2)]">
-              Book a Live Demo
+            <Link href={`/${locale}/book-demo`} className="bg-[#00D4FF] hover:bg-[#00bfe6] text-[#060B14] text-[15px] px-8 py-3.5 flex items-center gap-2.5 rounded font-semibold transition-colors shadow-[0_0_15px_rgba(0,212,255,0.2)]">
+              {t('book_demo')}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </Link>
             
-            <Link href="/tour" className="group flex items-center gap-2.5 text-[15px]">
+            <Link href={`/${locale}/tour`} className="group flex items-center gap-2.5 text-[15px]">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:scale-110">
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
               <span className="text-white font-medium underline underline-offset-4 decoration-white/70 group-hover:decoration-white transition-colors">
-                Watch Product Tour
+                {t('watch_tour')}
               </span>
             </Link>
           </motion.div>
@@ -87,7 +91,7 @@ export default function HeroSection() {
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            Built specifically for transport operations across Ethiopia and East Africa
+            {t('subtext')}
           </motion.div>
 
         </div>

@@ -1,0 +1,216 @@
+{
+  "Navbar": {
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "how_it_works": "How It Works",
+    "pricing": "Pricing",
+    "company": "Company",
+    "log_in": "Log In",
+    "book_demo": "Book a Demo",
+    "english": "English",
+    "amharic": "Amharic",
+    "language": "Language"
+  },
+  "Hero": {
+    "pill": "ETHIOPIAN TRANSPORT OPERATIONS PLATFORM",
+    "title1": "Manage every truck, trip, driver and",
+    "title2": "settlement from one platform.",
+    "description": "SWIFTIAM connects dispatch, live vehicle tracking, driver operations, trip evidence and settlement in one place, giving transport teams a clearer view of what is happening from dispatch to closeout.",
+    "book_demo": "Book a Live Demo",
+    "watch_tour": "Watch Product Tour",
+    "subtext": "Built specifically for transport operations across Ethiopia and East Africa"
+  },
+  "OperationsList": {
+    "pill": "OPERATIONAL PAIN POINTS",
+    "title1": "Your operation is already moving.",
+    "title2": "SWIFTIAM helps you see and control it.",
+    "features": {
+      "dispatch": {
+        "label": "DISPATCH",
+        "title": "Still coordinating trips through calls and messages?",
+        "description": "SWIFTIAM gives dispatch teams one place to create trips, assign drivers and follow active operations."
+      },
+      "on_road": {
+        "label": "ON THE ROAD",
+        "title": "Need to know where a truck is without calling the driver?",
+        "description": "Live GPS tracking gives your team visibility into active trips while drivers keep updating from the mobile app."
+      },
+      "delivery": {
+        "label": "DELIVERY",
+        "title": "Still waiting for physical proof before a trip can move forward?",
+        "description": "Drivers can capture and upload delivery evidence from the field, keeping trip records together."
+      },
+      "closeout": {
+        "label": "CLOSEOUT",
+        "title": "Still piecing together trip information before settlement?",
+        "description": "SWIFTIAM brings trip records and evidence together to support a more organized settlement workflow, with partial settlement automation."
+      }
+    }
+  },
+  "ConnectedWorkflow": {
+    "pill": "THE PIPELINE",
+    "title1": "One operation. One connected",
+    "title2": "workflow.",
+    "description": "From the moment a trip is assigned to the moment it is closed, SWIFTIAM keeps the operational information connected.",
+    "steps": {
+      "assign": { "title": "ASSIGN", "description": "Create trips and assign drivers" },
+      "track": { "title": "TRACK", "description": "See active vehicles and progress" },
+      "capture": { "title": "CAPTURE", "description": "Drivers submit field evidence" },
+      "verify": { "title": "VERIFY", "description": "Review trip records & data" },
+      "settle": { "title": "SETTLE", "description": "Move trip toward financial close" },
+      "report": { "title": "REPORT", "description": "Clearer record for management" }
+    }
+  },
+  "SoftwareViews": {
+    "pill": "INTERFACE SHOWCASE",
+    "title": "See the operation, not just the software.",
+    "description": "SWIFTIAM gives dispatchers and transport managers a shared, verified view of the actual work happening across their fleet.",
+    "click_hint": "Click to expand",
+    "cards": {
+      "dispatch": {
+        "title": "Dispatch Console",
+        "subtitle": "Know what is assigned, active and pending.",
+        "description": "One control tower for your operations team. Dispatchers view active routes, vehicle assignments, and real-time trip lifecycles without jumping between manual logs."
+      },
+      "driver": {
+        "title": "Driver Mobile App",
+        "subtitle": "Keep drivers connected from the road.",
+        "description": "Designed to operate on standard mobile connections. Drivers receive trip orders, update status, and relay GPS coordinates automatically without costly specialized hardware."
+      },
+      "vault": {
+        "title": "Digital Evidence Vault",
+        "subtitle": "Bring delivery records back into the workflow.",
+        "description": "Instant field capture. Drivers snap photo evidence of waybills, customs documents, and customer sign-offs, attaching them instantly to the permanent trip ledger."
+      }
+    }
+  },
+  "UserRoles": {
+    "pill": "USER ROLES",
+    "title": "Built for the people keeping freight moving.",
+    "roles": {
+      "fleet": { "title": "Fleet & Transport Managers", "description": "See fleet activity, trip progress and operational records in one place. No more relying on disjointed status spreadsheets." },
+      "dispatch": { "title": "Dispatch Teams", "description": "Assign trips, coordinate drivers and stay on top of active operations with instant digital handoffs and real-time confirmations." },
+      "drivers": { "title": "Drivers", "description": "Accept orders, share locations effortlessly and upload trip evidence directly from the field with a localized, lightweight app." },
+      "finance": { "title": "Finance & Operations", "description": "Work from complete operational records rather than loose paperwork as trips move steadily toward financial closeout and settlement." }
+    }
+  },
+  "EthiopianContext": {
+    "pill": "LOCAL CONTEXT",
+    "title1": "Built around the realities of Ethiopian",
+    "title2": "freight operations.",
+    "description": "Transport operations in Ethiopia often span long routes, multiple regional check-points, and changing terminal conditions. SWIFTIAM consolidates the operational coordinates your team needs into one connected flow.",
+    "monitor_title": "ETHIOPIAN CORRIDOR MONITOR",
+    "active_trips": "active trips",
+    "cards": {
+      "local_operations": { "title": "LOCAL OPERATIONS", "description": "Transport workflows designed natively around the actual way Ethiopian fleets and dispatch teams operate." },
+      "mobile_driver_app": { "title": "MOBILE DRIVER APP", "description": "Keep the field connected to dispatch. Drivers can accept orders, update trip statuses, and upload proof-of-delivery evidence directly from their phones." },
+      "local_support": { "title": "LOCAL SUPPORT", "description": "No remote-only troubleshooting. Our local team conducts guided on-site implementations and training." },
+      "live_fleet_tracking": { "title": "LIVE FLEET TRACKING", "description": "Maintain total visibility over your assets. SWIFTIAM includes built-in GPS tracking so you always know where your trucks and active loads are." }
+    }
+  },
+  "WhyChooseUs": {
+    "pill": "CORE VALUE",
+    "title": "Why transport teams choose a connected operating workflow",
+    "values": {
+      "connected": { "title": "CONNECTED OPERATIONS", "description": "Trips, drivers, live tracking coordinates, and digital delivery evidence function together within a single unified operational ledger." },
+      "visibility": { "title": "LIVE VISIBILITY", "description": "Instantly locate active trips and monitor route progression without constant back-and-forth manual follow-ups." },
+      "continuity": { "title": "FIELD-TO-OFFICE CONTINUITY", "description": "Documents and details scanned by drivers on the road immediately synchronize with central operations back at the dispatch office." },
+      "adoption": { "title": "GUIDED ADOPTION", "description": "No hands-off software drops. SWIFTIAM provides structural, local support to onboard and train your staff properly." }
+    }
+  },
+  "TransitionSteps": {
+    "pill": "OUR METHOD",
+    "title": "You don't have to change your operation overnight.",
+    "btn_demo": "Book a Live Demo",
+    "steps": {
+      "understand": { "title": "Understand", "description": "We map your current regional transport workflows, route networks, and check-point setups." },
+      "configure": { "title": "Configure", "description": "SWIFTIAM is set up around your operational structures, user roles, and documentation rules." },
+      "connect": { "title": "Connect", "description": "Dispatchers and drivers are systematically trained and welcomed into the daily digital workflow." },
+      "go_live": { "title": "Go Live", "description": "Your team begins managing trips in real-time, backed by our continuous hands-on local support." }
+    }
+  },
+  "VideoAction": {
+    "pill": "VIDEO OVERVIEW",
+    "title": "See SWIFTIAM in action",
+    "description": "Take a structured, two-minute look at how dispatch, live route tracking, driver operations, and digital closeout sync together seamlessly across the platform.",
+    "btn_tour": "Watch the Product Tour",
+    "placeholder": "Video Player Embedded Here"
+  },
+  "FAQ": {
+    "pill": "QUESTIONS",
+    "title": "Frequently Asked Questions",
+    "items": {
+      "q1": { "question": "Does SWIFTIAM support live GPS tracking?", "answer": "Yes. The platform integrates with various standard vehicle GPS models, consolidating positional data directly onto the central dispatch dashboard." },
+      "q2": { "question": "Is the driver app available?", "answer": "Yes. The dedicated driver utility is available for standard smartphone setups, specifically engineered for low-data network optimization on long transport corridors." },
+      "q3": { "question": "What can drivers do in the app?", "answer": "Drivers can receive active trip instructions, view destination routes, report status progress, and instantly scan waybills/proof-of-delivery documents using the built-in scanner tool." },
+      "q4": { "question": "Does SWIFTIAM track fuel?", "answer": "The platform records critical trip-related operational logs and evidence metrics, which feed seamlessly into your existing management accounting systems." },
+      "q5": { "question": "How does settlement work?", "answer": "Trip documents uploaded by drivers immediately map against dispatch records, letting your administrative team perform quick, verified partial settlements without physical paper delays." },
+      "q6": { "question": "What payment integrations are available?", "answer": "SWIFTIAM currently supports partial settlement automation and cost verification. We are actively evaluating local digital payment providers for future direct integration to support regional financial frameworks." },
+      "q7": { "question": "What languages are supported?", "answer": "The SWIFTIAM platform interface is currently available in English, ensuring clear workflows from administrators down to drivers. Our informational website can be viewed in both English and Amharic." },
+      "q8": { "question": "How does pricing work?", "answer": "We partner directly with enterprise fleets through custom, contract-based agreements. Contact our team to discuss your operational needs and receive a tailored quotation." },
+      "q9": { "question": "How do we get started?", "answer": "Book a live online demo today. Our team will connect with your management to plan a staged, on-site setup." }
+    }
+  },
+  "BottomCTA": {
+    "pill": "OPERATIONS CONNECTED",
+    "title": "Your operation is moving. Make it easier to manage.",
+    "description": "See how SWIFTIAM can consolidate your dispatch, drivers, status tracking, evidence storage, and administrative settlements into one single operational environment.",
+    "book_demo": "Book a Live Demo",
+    "watch_tour": "Watch Product Tour"
+  },
+  "Footer": {
+    "description": "The transport operations platform built for clearer, more connected transport workflows. Optimized for fleets operating in and around Ethiopia.",
+    "platform": { "title": "Platform", "link1": "Platform", "link2": "Solutions", "link3": "How It Works", "link4": "Pricing" },
+    "company": { "title": "Company", "link1": "About", "link2": "Contact", "link3": "FAQ" },
+    "legal": { "title": "Legal", "link1": "Privacy Policy", "link2": "Terms of Service" },
+    "rights": "© {year} SWIFTIAM. All rights reserved."
+  },
+  "BookDemo": {
+    "title": "Book a live demo",
+    "description": "A local specialist walks through SWIFTIAM against your current operation. Response within one working day.",
+    "labels": {
+      "fullName": "Full name",
+      "phone": "Phone number",
+      "email": "Email address",
+      "company": "Company",
+      "fleetSize": "Fleet size",
+      "language": "Preferred language",
+      "challenge": "Primary challenge (Optional)"
+    },
+    "placeholders": {
+      "fullName": "Abel Tesfaye",
+      "phone": "91 234 5678",
+      "email": "abel@company.com",
+      "company": "Company name",
+      "challenge": "e.g. PODs arrive late and fuel costs are hard to verify"
+    },
+    "fleetOptions": {
+      "select": "Select",
+      "opt1": "1 - 10 trucks",
+      "opt2": "11 - 50 trucks",
+      "opt3": "51 - 200 trucks",
+      "opt4": "200+ trucks"
+    },
+    "submit": "Request demo",
+    "submitting": "Sending...",
+    "response_time": "Response within 24 hours",
+    "success_title": "Request Sent Successfully",
+    "success_desc": "Thank you! Our local operations specialist will contact you within 24 hours to schedule your personalized product walkthrough.",
+    "btn_home": "Return to homepage"
+  },
+  "Terms": {
+    "pill": "Page in Progress",
+    "title": "Terms of Service",
+    "subtitle": "The terms governing use of the SWIFTIAM platform and related services.",
+    "message1": "We're putting the finishing touches on this section. In the meantime, you can talk to our sales team, or explore features for your fleet size.",
+    "btn_back": "Back to Home",
+    "btn_sales": "Contact sales"
+  },
+  "Privacy": {
+    "pill": "Legal",
+    "title": "Privacy Policy",
+    "updated": "Last updated: September 25, 2026",
+    "footer_text": "This page is the public Privacy Policy for the SWIFTIAM mobile app on Google Play and related Services. For product questions, return to the",
+    "btn_home": "homepage"
+  }
+}
